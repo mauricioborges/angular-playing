@@ -1,0 +1,32 @@
+<html ng-app="app">
+      <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.min.css"/>
+      <style type="text/css">
+        .myGrid {
+          width: 1000px;
+          height: 250px;
+        }
+      </style>
+      <script src="bower_components/angular/angular.min.js"></script>
+      <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+      <script>
+        var app = angular.module('app', ['ui.grid']);
+
+        app.controller('MainCtrl', function () {
+          this.myData = [
+            {name:'me', age: 7, movie:'none', candy:2},
+            {name:'me1', age: 8},
+            {name:'me2', age: 9},
+            {name:'me3', age: 10},
+            {name:'me4', age: true},
+            {name:'me5', age: 11},
+            {name:'me6', age: 12},
+            {name:'me7', age: 13}
+            {name:'you', age: 14, movie: {name:'complex object', aging:2}}
+          ];
+        });
+      </script>
+      <div ng-controller="MainCtrl as vm">
+        <div ui-grid="{ data: vm.myData }" class="myGrid"></div>
+      </div>
+
+</html>
