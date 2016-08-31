@@ -1,19 +1,19 @@
 <html ng-app="app">
-      <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.min.css"/>
+      <link rel="stylesheet" type="text/css" href="/static/angular-ui-grid/ui-grid.min.css"/>
       <style type="text/css">
         .myGrid {
           width: 1000px;
           height: 250px;
         }
       </style>
-      <script src="bower_components/angular/angular.min.js"></script>
-      <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+      <script src="/static/angular/angular.min.js"></script>
+      <script src="/static/angular-ui-grid/ui-grid.min.js"></script>
       <script>
         var app = angular.module('app', ['ui.grid', 'ui.grid.expandable', 'ui.grid.selection', 'ui.grid.pinning']);
 
         app.controller('MainCtrl',["$scope" ,function ($scope) {
           this.myData = [
-            {name:'me', age: 7, movie:'none', candy:2},
+          {name:'me', age: 7, movie:'none', candy:2, details:[{name:"detail name", size:100}]},
             {name:'me1', age: 8},
             {name:'me2', age: 9},
             {name:'me3', age: 10},
@@ -27,7 +27,7 @@
         }]);
       </script>
       <div ng-controller="MainCtrl as vm">
-        <div ui-grid='{ data: vm.myData, expandableRowTemplate: "details.html", expandableRowHeight: 140 }'  ui-grid-pinning ui-grid-expandable class="myGrid"></div>
+        <div ui-grid='{ data: vm.myData, expandableRowTemplate: "/details.html", expandableRowHeight: 140 }'  ui-grid-pinning ui-grid-expandable class="myGrid"></div>
       </div>
 
 </html>
